@@ -1,0 +1,250 @@
+{
+  "properties": [
+    {
+      "name": "spring.shardingsphere.dataSources.db0.dataSourceClassName",
+      "type": "java.lang.String",
+      "description": "HikariCP连接池依赖",
+      "defaultValue": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.shardingsphere.dataSources.db0.driverClassName",
+      "type": "java.lang.String",
+      "description": "数据库驱动配置",
+      "defaultValue": "com.mysql.jdbc.Driver"
+    },
+    {
+      "name": "spring.shardingsphere.dataSources.db0.jdbcUrl",
+      "type": "java.lang.String",
+      "description": "数据库地址",
+      "defaultValue": "jdbc:mysql://xx.xx.xx.xx:3306/db0"
+    },
+    {
+      "name": "spring.shardingsphere.dataSources.db0.username",
+      "type": "java.lang.String",
+      "description": "数据库账号",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.dataSources.db0.password",
+      "type": "java.lang.String",
+      "description": "数据库密码",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.dataSources.db1.dataSourceClassName",
+      "type": "java.lang.String",
+      "description": "HikariCP连接池依赖",
+      "defaultValue": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.shardingsphere.dataSources.db1.driverClassName",
+      "type": "java.lang.String",
+      "description": "数据库驱动配置",
+      "defaultValue": "com.mysql.jdbc.Driver"
+    },
+    {
+      "name": "spring.shardingsphere.dataSources.db1.jdbcUrl",
+      "type": "java.lang.String",
+      "description": "数据库地址",
+      "defaultValue": "jdbc:mysql://xx.xx.xx.xx:3306/db1"
+    },
+    {
+      "name": "spring.shardingsphere.dataSources.db1.username",
+      "type": "java.lang.String",
+      "description": "数据库账号",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.dataSources.db1.password",
+      "type": "java.lang.String",
+      "description": "数据库密码",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.shardingAlgorithms",
+      "type": "java.lang.String",
+      "description": "分片规则的配置节点，下个层级就是具体的分片规则",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.shardingAlgorithms.xx-inline",
+      "type": "java.lang.String",
+      "description": "xx-inline就是分片规则的名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.shardingAlgorithms.xx-inline.type",
+      "type": "java.lang.String",
+      "description": "分片算法，此处的xx-inline为分片规则的名称",
+      "defaultValue": "INLINE"
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.shardingAlgorithms.xx-inline.props.algorithm-expression",
+      "type": "java.lang.String",
+      "description": "分片规则",
+      "defaultValue": "表名$->{分片键 % 分多少片}"
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables",
+      "type": "java.lang.String",
+      "description": "数据分片规则配置，下个层级就是配置表的具体分片规则",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name",
+      "type": "java.lang.String",
+      "description": "分片表的配置节点，logic_table_name为需要分片的逻辑表名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.actualDataNodes",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的分库和分表的规则,例子里的n为分片的数字，由数据源名 + 表名组成（参考 Inline 语法规则），logic_db_name为数据源的名称，logic_table_name为表的名称",
+      "defaultValue": "logic_db_name$->{0..n}.logic_table_name$->{0..n}"
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.tableStrategy",
+      "type": "java.lang.String",
+      "description": "分表策略,配置logic_table_name的分表规则",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.tableStrategy.standard",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的单分片键的标准分片场景",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.tableStrategy.standard.shardingColumn",
+      "type": "java.lang.String",
+      "description": "分片列名称，例如表里的order_id这个字段",
+      "defaultValue": "order_id"
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.tableStrategy.standard.shardingAlgorithmName",
+      "type": "java.lang.String",
+      "description": "分片算法名称，就是spring.shardingsphere.rules.sharding.shardingAlgorithms底下配置的分片规则",
+      "defaultValue": "xx-inline"
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.databaseStrategy",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的分库策略",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.databaseStrategy.standard",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的单分片键的标准分片场景",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.databaseStrategy.standard.shardingColumn",
+      "type": "java.lang.String",
+      "description": "分片列名称，例如表里的order_id这个字段",
+      "defaultValue": "order_id"
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.databaseStrategy.standard.shardingAlgorithmName",
+      "type": "java.lang.String",
+      "description": "分片算法名称，就是spring.shardingsphere.rules.sharding.shardingAlgorithms底下配置的分片规则",
+      "defaultValue": "xx-inline"
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.tableStrategy.complex",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的多分片键的复合分片场景",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.tableStrategy.complex.shardingColumns",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的分片列名称，多个列以逗号分隔",
+      "defaultValue": "例如order_id,user_id"
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.tableStrategy.complex.shardingAlgorithmName",
+      "type": "java.lang.String",
+      "description": "分片算法名称，就是spring.shardingsphere.rules.sharding.shardingAlgorithms底下配置的符合分片规则",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.databaseStrategy.complex",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的分库的多分片键的复合分片场景",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.databaseStrategy.complex.shardingColumns",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的分库分片列名称，多个列以逗号分隔",
+      "defaultValue": "例如order_id,user_id"
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.databaseStrategy.complex.shardingAlgorithmName",
+      "type": "java.lang.String",
+      "description": "分库分片算法名称，就是spring.shardingsphere.rules.sharding.shardingAlgorithms底下配置的符合分片规则",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.tableStrategy.hint",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的强制分片",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.tableStrategy.hint.shardingAlgorithmName",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的强制分片算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.keyGenerateStrategy",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的分布式序列策略",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.keyGenerateStrategy.column",
+      "type": "java.lang.String",
+      "description": "自增列名称，缺省表示不使用自增主键生成器",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.keyGenerateStrategy.keyGeneratorName",
+      "type": "java.lang.String",
+      "description": "分布式序列算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.auditStrategy",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的分片审计策略",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.auditStrategy.auditorNames",
+      "type": "java.lang.String",
+      "description": "配置logic_table_name的分片审计算法，其底下的层级为数组 - auditor_name 的形式展示",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.keyGenerators",
+      "type": "java.lang.String",
+      "description": "配置ID的生成方式",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.keyGenerators.snowflake",
+      "type": "java.lang.String",
+      "description": "snowflake为ID生成方式的名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.keyGenerators.snowflake.type",
+      "type": "java.lang.String",
+      "description": "配置生成ID的内置算法",
+      "defaultValue": "SNOWFLAKE"
+    }
+  ]
+}
