@@ -229,6 +229,84 @@
       "defaultValue": ""
     },
     {
+      "name": "spring.shardingsphere.rules.sharding.tables.logic_table_name.auditStrategy.allowHintDisable",
+      "type": "java.lang.Boolean",
+      "description": "配置logic_table_name是否禁用分片审计hint",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.autoTables",
+      "type": "java.lang.String",
+      "description": "自动分片表规则配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.autoTables.logic_table_name",
+      "type": "java.lang.String",
+      "description": "自动分片表逻辑表名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.autoTables.logic_table_name.actualDataSources",
+      "type": "java.lang.String",
+      "description": "由数据源名 + 表名组成",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.autoTables.logic_table_name.shardingStrategy",
+      "type": "java.lang.String",
+      "description": "切分策略",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.autoTables.logic_table_name.shardingStrategy.standard",
+      "type": "java.lang.String",
+      "description": "用于单分片键的标准分片场景",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.autoTables.logic_table_name.shardingStrategy.standard.shardingColumn",
+      "type": "java.lang.String",
+      "description": "分片列名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.autoTables.logic_table_name.shardingStrategy.standard.shardingAlgorithmName",
+      "type": "java.lang.String",
+      "description": "自动分片算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.bindingTables",
+      "type": "java.lang.String",
+      "description": "绑定表规则列表,底下为绑定规则的列表采用该形式展示绑定规则【- <logic_table_name_1, logic_table_name_2, ...>】",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.defaultDatabaseStrategy",
+      "type": "java.lang.String",
+      "description": "默认数据库分片策略",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.defaultTableStrategy",
+      "type": "java.lang.String",
+      "description": "默认表分片策略",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.defaultKeyGenerateStrategy",
+      "type": "java.lang.String",
+      "description": "默认的分布式序列策略",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.defaultShardingColumn",
+      "type": "java.lang.String",
+      "description": "默认分片列名称",
+      "defaultValue": ""
+    },
+    {
       "name": "spring.shardingsphere.rules.sharding.keyGenerators",
       "type": "java.lang.String",
       "description": "配置ID的生成方式",
@@ -245,6 +323,426 @@
       "type": "java.lang.String",
       "description": "配置生成ID的内置算法",
       "defaultValue": "SNOWFLAKE"
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.auditors",
+      "type": "java.lang.String",
+      "description": "分片审计算法配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.auditors.sharding_audit_algorithm_name",
+      "type": "java.lang.String",
+      "description": "分片审计算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.auditors.sharding_audit_algorithm_name.type",
+      "type": "java.lang.String",
+      "description": "分片审计算法类型",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.sharding.auditors.sharding_audit_algorithm_name.props",
+      "type": "java.lang.String",
+      "description": "分片审计算法属性配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.broadcast",
+      "type": "java.lang.String",
+      "description": "广播表配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.broadcast.tables",
+      "type": "java.lang.String",
+      "description": "广播表规则列表,采用列表形式展示【- <table_name>】",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting",
+      "type": "java.lang.String",
+      "description": "读写分离配置节点",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting.dataSourceGroups",
+      "type": "java.lang.String",
+      "description": "读写分离配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting.dataSourceGroups.data_source_name",
+      "type": "java.lang.String",
+      "description": "读写分离逻辑数据源名称，默认使用 Groovy 的行表达式 SPI 实现来解析",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting.dataSourceGroups.data_source_name.write_data_source_name",
+      "type": "java.lang.String",
+      "description": "写库数据源名称，默认使用 Groovy 的行表达式 SPI 实现来解析",
+      "defaultValue": "write_ds"
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting.dataSourceGroups.data_source_name.read_data_source_names",
+      "type": "java.lang.String",
+      "description": "读库数据源名称，多个从数据源用逗号分隔，默认使用 Groovy 的行表达式 SPI 实现来解析",
+      "defaultValue": "read_ds_0,read_ds_1"
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting.dataSourceGroups.data_source_name.transactionalReadQueryStrategy",
+      "type": "java.lang.String",
+      "description": "事务内读请求的路由策略，可选值：PRIMARY（路由至主库）、FIXED（同一事务内路由至固定数据源）、DYNAMIC（同一事务内路由至非固定数据源）。默认值：DYNAMIC",
+      "defaultValue": "DYNAMIC"
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting",
+      "type": "java.lang.String",
+      "description": "负载均衡算法名称",
+      "defaultValue": "DYNAMIC"
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting.loadBalancers",
+      "type": "java.lang.String",
+      "description": "负载均衡算法配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting.loadBalancers.load_balancer_name",
+      "type": "java.lang.String",
+      "description": "负载均衡算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting.loadBalancers.load_balancer_name.type",
+      "type": "java.lang.String",
+      "description": "负载均衡算法类型",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.readwrite_splitting.loadBalancers.load_balancer_name.props",
+      "type": "java.lang.String",
+      "description": "负载均衡算法属性配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.transaction",
+      "type": "java.lang.String",
+      "description": "事务模式的配置",
+      "defaultValue": "DYNAMIC"
+    },
+    {
+      "name": "spring.shardingsphere.transaction.defaultType",
+      "type": "java.lang.String",
+      "description": "事务模式，可选值 LOCAL/XA/BASE",
+      "defaultValue": "BASE"
+    },
+    {
+      "name": "spring.shardingsphere.transaction.providerType",
+      "type": "java.lang.String",
+      "description": "指定模式下的具体实现",
+      "defaultValue": "Seata"
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt",
+      "type": "java.lang.String",
+      "description": "数据加密的配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables",
+      "type": "java.lang.String",
+      "description": "需要数据加密的表",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables.table_name",
+      "type": "java.lang.String",
+      "description": "具体要加密的表",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables.table_name.columns",
+      "type": "java.lang.String",
+      "description": "需要加密的加密列",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables.table_name.columns.column_name",
+      "type": "java.lang.String",
+      "description": "具体加密列名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables.table_name.columns.column_name.cipher",
+      "type": "java.lang.String",
+      "description": "加密规则",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables.table_name.columns.column_name.cipher.name",
+      "type": "java.lang.String",
+      "description": "密文列名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables.table_name.columns.column_name.cipher.encryptorName",
+      "type": "java.lang.String",
+      "description": "密文列加密算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables.table_name.columns.column_name.assistedQuery.name",
+      "type": "java.lang.String",
+      "description": "查询辅助列名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables.table_name.columns.column_name.assistedQuery.encryptorName",
+      "type": "java.lang.String",
+      "description": "查询辅助列加密算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables.table_name.columns.column_name.likeQuery.name",
+      "type": "java.lang.String",
+      "description": "模糊查询列名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.tables.table_name.columns.column_name.likeQuery.encryptorName",
+      "type": "java.lang.String",
+      "description": "模糊查询列加密算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.encryptors",
+      "type": "java.lang.String",
+      "description": "加密算法配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.encryptors.encrypt_algorithm_name",
+      "type": "java.lang.String",
+      "description": "加解密算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.encryptors.encrypt_algorithm_name.type",
+      "type": "java.lang.String",
+      "description": "加解密算法类型",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.encrypt.encryptors.encrypt_algorithm_name.props",
+      "type": "java.lang.String",
+      "description": "加解密算法属性配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.mask.tables",
+      "type": "java.lang.String",
+      "description": "脱敏的表集合",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.mask.tables.table_name",
+      "type": "java.lang.String",
+      "description": "脱敏表名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.mask.tables.table_name.columns",
+      "type": "java.lang.String",
+      "description": "脱敏列配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.mask.tables.table_name.columns.column_name",
+      "type": "java.lang.String",
+      "description": "脱敏具体列",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.mask.tables.table_name.columns.column_name.maskAlgorithm",
+      "type": "java.lang.String",
+      "description": "脱敏算法",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.mask.maskAlgorithms",
+      "type": "java.lang.String",
+      "description": "脱敏算法配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.mask.maskAlgorithms.mask_algorithm_name",
+      "type": "java.lang.String",
+      "description": "脱敏算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.mask.maskAlgorithms.mask_algorithm_name.type",
+      "type": "java.lang.String",
+      "description": "脱敏算法类型",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.mask.maskAlgorithms.mask_algorithm_name.props",
+      "type": "java.lang.String",
+      "description": "脱敏算法属性配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow",
+      "type": "java.lang.String",
+      "description": "影子库配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.dataSources",
+      "type": "java.lang.String",
+      "description": "数据源配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.dataSources.shadowDataSource",
+      "type": "java.lang.String",
+      "description": "影子库数据源配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.dataSources.shadowDataSource.productionDataSourceName",
+      "type": "java.lang.String",
+      "description": "生产数据源名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.dataSources.shadowDataSource.shadowDataSourceName",
+      "type": "java.lang.String",
+      "description": "影子数据源名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.tables.table_name",
+      "type": "java.lang.String",
+      "description": "影子表",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.tables.table_name.dataSourceNames",
+      "type": "java.lang.String",
+      "description": "影子表关联影子数据源名称列表，底下参数如下所示：- <shadow_data_source>",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.tables.table_name.shadowAlgorithmNames",
+      "type": "java.lang.String",
+      "description": "影子表关联影子算法名称列表,底下参数如下所示：- <shadow_algorithm_name>",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.tables.defaultShadowAlgorithmName",
+      "type": "java.lang.String",
+      "description": "默认影子算法名称（选配项）",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.tables.shadowAlgorithms.shadow_algorithm_name",
+      "type": "java.lang.String",
+      "description": "影子算法名称",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.tables.shadowAlgorithms.shadow_algorithm_name.type",
+      "type": "java.lang.String",
+      "description": "影子算法类型",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.shadow.tables.shadowAlgorithms.shadow_algorithm_name.props",
+      "type": "java.lang.String",
+      "description": "影子算法属性配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.sqlParser",
+      "type": "java.lang.String",
+      "description": "sql的配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.sqlParser.sqlStatementCache",
+      "type": "java.lang.String",
+      "description": "SQL 语句本地缓存配置项",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.sqlParser.sqlStatementCache.initialCapacity",
+      "type": "java.lang.String",
+      "description": "本地缓存初始容量",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.sqlParser.sqlStatementCache.maximumSize",
+      "type": "java.lang.String",
+      "description": "本地缓存最大容量",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.sqlParser.parseTreeCache",
+      "type": "java.lang.String",
+      "description": "解析树本地缓存配置项",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.sqlParser.parseTreeCache.initialCapacity",
+      "type": "java.lang.String",
+      "description": "本地缓存初始容量",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.sqlParser.parseTreeCache.maximumSize",
+      "type": "java.lang.String",
+      "description": "本地缓存最大容量",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.sqlTranslator",
+      "type": "java.lang.String",
+      "description": "SQL翻译的配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.sqlTranslator.type",
+      "type": "java.lang.String",
+      "description": "SQL 翻译器类型",
+      "defaultValue": "Native"
+    },
+    {
+      "name": "spring.shardingsphere.sqlTranslator.useOriginalSQLWhenTranslatingFailed",
+      "type": "java.lang.Boolean",
+      "description": "SQL 翻译失败是否使用原始 SQL 继续执行",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.shardingsphere.rules.single",
+      "type": "java.lang.String",
+      "description": "单表的配置",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.single.tables",
+      "type": "java.lang.String",
+      "description": "具体的表采用集合的形式配置【- ds_0.t_single】",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.shardingsphere.rules.single.defaultDataSource",
+      "type": "java.lang.String",
+      "description": "默认数据源，仅在执行 CREATE TABLE 创建单表时有效。缺失值为空，表示随机单播路由。",
+      "defaultValue": ""
     }
   ]
 }
