@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -153,29 +154,11 @@ public class PropertiesParser {
                 Object valObj = entry.getValue();
                 if (entry.getKey().contains("[") && entry.getKey().contains("]") && arrayIsAdd == false) {
                     arrayIsAdd = true;
-                    String key = entry.getKey().substring(0, entry.getKey().indexOf("[")) + ":";
-                    yamlBuffer.append(space + key + "\n");
-                    for(Map.Entry<String, Object> item : propMap.entrySet()){
-                        String itemKey = item.getKey();
-                        Object itemValue = item.getValue();
-                        if (itemKey.startsWith(key.substring(0, entry.getKey().indexOf("[")))) {
-                            yamlBuffer.append(getSpace(deep + 1) + "- ");
-                            if (itemValue instanceof Map) {
-                                StringBuffer valStr = map2Yaml((Map<String, Object>) itemValue, 0);
-                                String[] split = valStr.toString().split(StrUtil.LF);
-                                for (int i = 0; i < split.length; i++) {
-                                    if (i > 0) {
-                                        yamlBuffer.append(getSpace(deep + 2));
-                                    }
-                                    yamlBuffer.append(split[i]).append(StrUtil.LF);
-                                }
-                            } else {
-                                yamlBuffer.append(itemValue + "\n");
-                            }
-                        } else {
-                            key = itemKey.substring(0, itemKey.indexOf("[")) + ":";
-                            yamlBuffer.append(space + key + "\n");
-                            if (itemKey.startsWith(key.substring(0, entry.getKey().indexOf("[")))) {
+                    Map<String, String> arrayKeyMap = loadArrayKey(propMap);
+                    arrayKeyMap.forEach((arrayKey, arrayKeyVal) -> {
+                        yamlBuffer.append(space + arrayKey + "\n");
+                        propMap.forEach((itemKey, itemValue) -> {
+                            if (itemKey.startsWith(arrayKey.substring(0, entry.getKey().indexOf("[")))) {
                                 yamlBuffer.append(getSpace(deep + 1) + "- ");
                                 if (itemValue instanceof Map) {
                                     StringBuffer valStr = map2Yaml((Map<String, Object>) itemValue, 0);
@@ -190,10 +173,10 @@ public class PropertiesParser {
                                     yamlBuffer.append(itemValue + "\n");
                                 }
                             }
-                        }
-                    }
+                        });
+                    });
                 } else {
-                    if(entry.getKey().contains("[") && entry.getKey().contains("]")){
+                    if (entry.getKey().contains("[") && entry.getKey().contains("]")) {
                         continue;
                     }
                     String key = space + entry.getKey() + ":";
@@ -221,6 +204,19 @@ public class PropertiesParser {
             e.printStackTrace();
         }
         return yamlBuffer;
+    }
+
+    private static Map<String, String> loadArrayKey(Map<String, Object> propMap) {
+        Map<String, String> arrayKeyMap = new HashMap<>();
+        for (Map.Entry<String, Object> entry : propMap.entrySet()) {
+            if(entry.getKey().contains("[") && entry.getKey().contains("]")){
+                String key = entry.getKey().substring(0, entry.getKey().indexOf("[")) + ":";
+                if (arrayKeyMap.get(key) == null) {
+                    arrayKeyMap.put(key, key);
+                }
+            }
+        }
+        return arrayKeyMap;
     }
 
     /**
