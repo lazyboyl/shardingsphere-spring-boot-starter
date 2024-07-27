@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.lazyboyl</groupId>
     <artifactId>shardingsphere-spring-boot-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>5.5.0-SNAPSHOT</version>
     <name>shardingsphere-spring-boot-starter</name>
     <description>Demo project for Spring Boot</description>
     <url/>

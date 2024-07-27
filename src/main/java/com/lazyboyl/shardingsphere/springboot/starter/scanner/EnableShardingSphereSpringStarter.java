@@ -13,7 +13,7 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Documented
 @Import({ShardingsphereRegister.class})
-public @interface EnableNacosSpringStarter {
+public @interface EnableShardingSphereSpringStarter {
 
     /**
      * 功能描述： 需要进行spring扫描的目录

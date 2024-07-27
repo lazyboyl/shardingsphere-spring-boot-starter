@@ -5,6 +5,8 @@ import com.lazyboyl.shardingsphere.springboot.starter.util.PropertiesParser;
 import com.lazyboyl.shardingsphere.springboot.starter.util.ShardingsphereUtil;
 import com.lazyboyl.shardingsphere.springboot.starter.util.StrUtil;
 import org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.env.OriginTrackedMapPropertySource;
 import org.springframework.cloud.bootstrap.config.BootstrapPropertySource;
 import org.springframework.context.annotation.Bean;
@@ -28,6 +30,8 @@ import java.util.Map;
  */
 @Component
 public class ShardingConfig {
+
+    private Logger logger = LoggerFactory.getLogger(ShardingConfig.class);
 
     @Resource
     private ConfigurableEnvironment environment;
@@ -64,17 +68,26 @@ public class ShardingConfig {
         }
         // 组装properties配置
         StringBuilder sb = new StringBuilder();
+        String key = "";
         for (Map.Entry<String, Object> entry : propertiesMap.entrySet()) {
-            sb.append(entry.getKey()).append("=").append(entry.getValue()).append("\n");
+            key = entry.getKey();
+            if (key.indexOf(".props.special-chars") != -1 || key.indexOf(".props.replace-char") != -1) {
+                sb.append(entry.getKey()).append("=").append("'").append(entry.getValue()).append("'").append("\n");
+            } else {
+                sb.append(entry.getKey()).append("=").append(entry.getValue()).append("\n");
+            }
         }
         if (sb.toString().equals("")) {
             throw new RuntimeException("请配置shardingsphere");
         }
         // 将properties转换为yml
         String configYml = PropertiesParser.castToYaml(sb.toString());
+        logger.debug("配置为：\n{}", configYml);
+        String shardingConfig = ShardingsphereUtil.getShardingConfig(configYml);
+        logger.debug("转换以后的配置为：\n{}", shardingConfig);
         DataSource dataSource = null;
         try {
-            dataSource = YamlShardingSphereDataSourceFactory.createDataSource(ShardingsphereUtil.getShardingConfig(configYml).getBytes(StandardCharsets.UTF_8));
+            dataSource = YamlShardingSphereDataSourceFactory.createDataSource(shardingConfig.getBytes(StandardCharsets.UTF_8));
         } catch (SQLException | IOException throwables) {
             throwables.printStackTrace();
         }

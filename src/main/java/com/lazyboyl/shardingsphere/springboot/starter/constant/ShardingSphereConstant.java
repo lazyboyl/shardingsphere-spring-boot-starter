@@ -48,6 +48,11 @@ public class ShardingSphereConstant {
      */
     public static final String SHARDINGSPHERE_RULES_SINGLE = "single:";
 
+    /**
+     * 把shadow:替换为- !SHADOW
+     */
+    public static final String SHARDINGSPHERE_RULES_SHADOW = "shadow:";
+
 
     /**
      * 把readwrite_splitting:替换为- !READWRITE_SPLITTING

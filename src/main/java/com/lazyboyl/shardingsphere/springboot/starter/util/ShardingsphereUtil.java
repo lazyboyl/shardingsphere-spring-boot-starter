@@ -29,10 +29,12 @@ public class ShardingsphereUtil {
         StringBuilder sb = new StringBuilder();
         Integer subLength = getSubSpaceLength(shardingConfig);
         String[] shardingConfigs = shardingConfig.split("\n");
+        Integer level = 0;
         for (String s : shardingConfigs) {
             if (s.length() < subLength) {
                 continue;
             }
+            level = level + 1;
             if (isInclude(s, ShardingSphereConstant.SHARDINGSPHERE_RULES_SHARDING)) {
                 sb.append(subStr(s.replaceAll(ShardingSphereConstant.SHARDINGSPHERE_RULES_SHARDING, "- !SHARDING"), subLength)).append("\n");
             } else if (isInclude(s, ShardingSphereConstant.SHARDINGSPHERE_RULES_MASK)) {
@@ -45,6 +47,8 @@ public class ShardingsphereUtil {
                 sb.append(subStr(s.replaceAll(ShardingSphereConstant.SHARDINGSPHERE_RULES_READWRITE_SPLITTING, "- !READWRITE_SPLITTING"), subLength)).append("\n");
             } else if (isInclude(s, ShardingSphereConstant.SHARDINGSPHERE_RULES_BROADCAST)) {
                 sb.append(subStr(s.replaceAll(ShardingSphereConstant.SHARDINGSPHERE_RULES_BROADCAST, "- !BROADCAST"), subLength)).append("\n");
+            } else if (isInclude(s, ShardingSphereConstant.SHARDINGSPHERE_RULES_SHADOW)) {
+                sb.append(subStr(s.replaceAll(ShardingSphereConstant.SHARDINGSPHERE_RULES_SHADOW, "- !SHADOW"), subLength)).append("\n");
             } else {
                 sb.append(subStr(s, subLength)).append("\n");
             }
@@ -137,7 +141,7 @@ public class ShardingsphereUtil {
      * @return
      */
     private static Boolean isInclude(String str, String key) {
-        return str.indexOf(key) != -1;
+        return str.trim().equals(key);
     }
 
 }

@@ -148,12 +148,16 @@ public class PropertiesParser {
                 return yamlBuffer;
             }
             String space = getSpace(deep);
+            Boolean arrayIsAdd = false;
             for (Map.Entry<String, Object> entry : propMap.entrySet()) {
                 Object valObj = entry.getValue();
-                if (entry.getKey().contains("[") && entry.getKey().contains("]")) {
+                if (entry.getKey().contains("[") && entry.getKey().contains("]") && arrayIsAdd == false) {
+                    arrayIsAdd = true;
                     String key = entry.getKey().substring(0, entry.getKey().indexOf("[")) + ":";
                     yamlBuffer.append(space + key + "\n");
-                    propMap.forEach((itemKey, itemValue) -> {
+                    for(Map.Entry<String, Object> item : propMap.entrySet()){
+                        String itemKey = item.getKey();
+                        Object itemValue = item.getValue();
                         if (itemKey.startsWith(key.substring(0, entry.getKey().indexOf("[")))) {
                             yamlBuffer.append(getSpace(deep + 1) + "- ");
                             if (itemValue instanceof Map) {
@@ -168,10 +172,30 @@ public class PropertiesParser {
                             } else {
                                 yamlBuffer.append(itemValue + "\n");
                             }
+                        } else {
+                            key = itemKey.substring(0, itemKey.indexOf("[")) + ":";
+                            yamlBuffer.append(space + key + "\n");
+                            if (itemKey.startsWith(key.substring(0, entry.getKey().indexOf("[")))) {
+                                yamlBuffer.append(getSpace(deep + 1) + "- ");
+                                if (itemValue instanceof Map) {
+                                    StringBuffer valStr = map2Yaml((Map<String, Object>) itemValue, 0);
+                                    String[] split = valStr.toString().split(StrUtil.LF);
+                                    for (int i = 0; i < split.length; i++) {
+                                        if (i > 0) {
+                                            yamlBuffer.append(getSpace(deep + 2));
+                                        }
+                                        yamlBuffer.append(split[i]).append(StrUtil.LF);
+                                    }
+                                } else {
+                                    yamlBuffer.append(itemValue + "\n");
+                                }
+                            }
                         }
-                    });
-                    break;
+                    }
                 } else {
+                    if(entry.getKey().contains("[") && entry.getKey().contains("]")){
+                        continue;
+                    }
                     String key = space + entry.getKey() + ":";
                     if (valObj instanceof String) { //值为value 类型，不用再继续遍历
                         yamlBuffer.append(key + " " + valObj + "\n");

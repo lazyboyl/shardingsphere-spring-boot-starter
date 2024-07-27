@@ -28,7 +28,7 @@ public class ShardingsphereRegister implements ImportBeanDefinitionRegistrar, En
 
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
-        AnnotationAttributes annoAttrs = AnnotationAttributes.fromMap(importingClassMetadata.getAnnotationAttributes(EnableNacosSpringStarter.class.getName()));
+        AnnotationAttributes annoAttrs = AnnotationAttributes.fromMap(importingClassMetadata.getAnnotationAttributes(EnableShardingSphereSpringStarter.class.getName()));
         ShardingsphereScanner scanner = new ShardingsphereScanner(registry);
         List<String> basePackages = new ArrayList<String>();
         for (String pkg : annoAttrs.getStringArray("basePackages")) {
