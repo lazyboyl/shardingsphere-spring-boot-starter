@@ -158,7 +158,7 @@ public class PropertiesParser {
                     arrayKeyMap.forEach((arrayKey, arrayKeyVal) -> {
                         yamlBuffer.append(space + arrayKey + "\n");
                         propMap.forEach((itemKey, itemValue) -> {
-                            if (itemKey.indexOf("[")<arrayKey.length() && itemKey.startsWith(arrayKey.substring(0, itemKey.indexOf("[")))) {
+                            if (itemKey.indexOf("[") != -1 && itemKey.indexOf("[") < arrayKey.length() && itemKey.startsWith(arrayKey.substring(0, itemKey.indexOf("[")))) {
                                 yamlBuffer.append(getSpace(deep + 1) + "- ");
                                 if (itemValue instanceof Map) {
                                     StringBuffer valStr = map2Yaml((Map<String, Object>) itemValue, 0);
@@ -209,7 +209,7 @@ public class PropertiesParser {
     private static Map<String, String> loadArrayKey(Map<String, Object> propMap) {
         Map<String, String> arrayKeyMap = new HashMap<>();
         for (Map.Entry<String, Object> entry : propMap.entrySet()) {
-            if(entry.getKey().contains("[") && entry.getKey().contains("]")){
+            if (entry.getKey().contains("[") && entry.getKey().contains("]")) {
                 String key = entry.getKey().substring(0, entry.getKey().indexOf("[")) + ":";
                 if (arrayKeyMap.get(key) == null) {
                     arrayKeyMap.put(key, key);
