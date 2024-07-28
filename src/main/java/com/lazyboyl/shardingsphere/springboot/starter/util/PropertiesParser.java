@@ -158,7 +158,7 @@ public class PropertiesParser {
                     arrayKeyMap.forEach((arrayKey, arrayKeyVal) -> {
                         yamlBuffer.append(space + arrayKey + "\n");
                         propMap.forEach((itemKey, itemValue) -> {
-                            if (itemKey.startsWith(arrayKey.substring(0, entry.getKey().indexOf("[")))) {
+                            if (itemKey.indexOf("[")<arrayKey.length() && itemKey.startsWith(arrayKey.substring(0, itemKey.indexOf("[")))) {
                                 yamlBuffer.append(getSpace(deep + 1) + "- ");
                                 if (itemValue instanceof Map) {
                                     StringBuffer valStr = map2Yaml((Map<String, Object>) itemValue, 0);
