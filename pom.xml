@@ -10,22 +10,30 @@
     </parent>
     <groupId>com.lazyboyl</groupId>
     <artifactId>shardingsphere-spring-boot-starter</artifactId>
-    <version>5.5.0-SNAPSHOT</version>
+    <version>5.5.0</version>
     <name>shardingsphere-spring-boot-starter</name>
-    <description>Demo project for Spring Boot</description>
+    <description>实现shardingsphere5.5.0的基于spring boot的配置</description>
     <url/>
-    <licenses>
-        <license/>
-    </licenses>
     <developers>
-        <developer/>
+        <developer>
+            <name>linzefeng</name>
+            <email>282245889@qq.com</email>
+        </developer>
     </developers>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
     <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
+        <url>https://github.com/lazyboyl/shardingsphere-spring-boot-starter</url>
+        <connection>https://github.com/lazyboyl/shardingsphere-spring-boot-starter.git</connection>
+        <developerConnection>https://github.com/lazyboyl/shardingsphere-spring-boot-starter</developerConnection>
     </scm>
+
     <properties>
         <java.version>1.8</java.version>
         <shardingsphere.version>5.5.0</shardingsphere.version>
