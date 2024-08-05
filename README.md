@@ -16,7 +16,7 @@ shardingsphere-spring-boot-starter [![License](http://img.shields.io/:license-ap
 <dependency>
    <groupId>com.lazyboyl</groupId>
    <artifactId>shardingsphere-spring-boot-starter</artifactId>
-   <version>5.5.0</version>
+   <version>5.5.0.M1</version>
 </dependency>
 ```
 
@@ -205,7 +205,23 @@ spring:
 
 #### 4.6、数据脱敏
 
-经测试配置了但是无法实现脱敏，建议采用自定义加密算法来实现脱敏效果
+```yaml
+spring:
+  shardingsphere:
+    rules:
+      mask:
+        tables:
+          <table_name> (+): # 脱敏表名称
+            columns:
+              <column_name> (+): # 脱敏列名称
+                maskAlgorithm: # 脱敏算法
+        # 脱敏算法配置
+        maskAlgorithms:
+          <mask_algorithm_name> (+): # 脱敏算法名称
+            type: # 脱敏算法类型
+            props: # 脱敏算法属性配置
+            # ...
+```
 
 #### 4.7、影子库
 
