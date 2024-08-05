@@ -20,6 +20,6 @@ public @interface EnableShardingSphereSpringStarter {
      *
      * @return String[]
      */
-    String[] basePackages() default {"com.lazyboyl.shardingsphere.springboot.starter"};
+    String[] basePackages() default {"com.github.lazyboyl.shardingsphere.springboot.starter"};
 
 }
