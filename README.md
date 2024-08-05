@@ -2,7 +2,7 @@ shardingsphere-spring-boot-starter [![License](http://img.shields.io/:license-ap
 ===================================
 
 ### 1、简介
-在应用程序中你只需要几行代码就可以快速的构建websocket服务。
+在应用程序你可以像5.3.0版本一样愉快的使用spring boot 的配置来配置我们的shardingsphere
 ### 2、要求
 - jdk版本为1.8或1.8+
 - shardingsphere版本为5.5.0
