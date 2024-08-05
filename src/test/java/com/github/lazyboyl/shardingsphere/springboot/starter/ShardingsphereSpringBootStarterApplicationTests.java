@@ -1,4 +1,4 @@
-package com.lazyboyl.shardingsphere.springboot.starter;
+package com.github.lazyboyl.shardingsphere.springboot.starter;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.lazyboyl.shardingsphere.springboot.starter.constant;
+package com.github.lazyboyl.shardingsphere.springboot.starter.constant;
 
 /**
  * shardingsphere的静态常量类

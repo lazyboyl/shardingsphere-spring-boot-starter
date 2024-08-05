@@ -1,9 +1,9 @@
-package com.lazyboyl.shardingsphere.springboot.starter.sharding;
+package com.github.lazyboyl.shardingsphere.springboot.starter.sharding;
 
-import com.lazyboyl.shardingsphere.springboot.starter.constant.ShardingSphereConstant;
-import com.lazyboyl.shardingsphere.springboot.starter.util.PropertiesParser;
-import com.lazyboyl.shardingsphere.springboot.starter.util.ShardingsphereUtil;
-import com.lazyboyl.shardingsphere.springboot.starter.util.StrUtil;
+import com.github.lazyboyl.shardingsphere.springboot.starter.constant.ShardingSphereConstant;
+import com.github.lazyboyl.shardingsphere.springboot.starter.util.ShardingsphereUtil;
+import com.github.lazyboyl.shardingsphere.springboot.starter.util.StrUtil;
+import com.github.lazyboyl.shardingsphere.springboot.starter.util.PropertiesParser;
 import org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

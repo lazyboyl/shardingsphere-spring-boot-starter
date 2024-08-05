@@ -1,6 +1,6 @@
-package com.lazyboyl.shardingsphere.springboot.starter.util;
+package com.github.lazyboyl.shardingsphere.springboot.starter.util;
 
-import com.lazyboyl.shardingsphere.springboot.starter.constant.ShardingSphereConstant;
+import com.github.lazyboyl.shardingsphere.springboot.starter.constant.ShardingSphereConstant;
 
 /**
  * 将spring配置转换为shardingsphere可以识别的yml配置

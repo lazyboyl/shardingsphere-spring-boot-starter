@@ -1,4 +1,4 @@
-package com.lazyboyl.shardingsphere.springboot.starter.scanner;
+package com.github.lazyboyl.shardingsphere.springboot.starter.scanner;
 
 import org.springframework.context.annotation.Import;
 

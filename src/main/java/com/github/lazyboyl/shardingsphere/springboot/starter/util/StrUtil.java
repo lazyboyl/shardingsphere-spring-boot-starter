@@ -1,4 +1,4 @@
-package com.lazyboyl.shardingsphere.springboot.starter.util;
+package com.github.lazyboyl.shardingsphere.springboot.starter.util;
 
 import java.util.Map;
 
