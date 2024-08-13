@@ -109,6 +109,10 @@ public class ShardingsphereUtil {
         String[] shardingConfigs = shardingConfig.split("\n");
         for (String s : shardingConfigs) {
             if (s.replaceAll("\n", "").indexOf(ShardingSphereConstant.SHARDINGSPHERE_SPACE_PRESIX) != -1) {
+                Integer length = s.split(ShardingSphereConstant.SHARDINGSPHERE_SPACE_PRESIX)[0].length();
+                if(length>=8){
+                    continue;
+                }
                 return s.split(ShardingSphereConstant.SHARDINGSPHERE_SPACE_PRESIX)[0].length();
             }
         }
