@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.12.RELEASE</version>
+        <version>2.6.13</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.github.lazyboyl</groupId>
@@ -37,6 +37,7 @@
     <properties>
         <java.version>1.8</java.version>
         <shardingsphere.version>5.5.0</shardingsphere.version>
+        <spring.cloud.context.version>3.1.8</spring.cloud.context.version>
     </properties>
     <dependencies>
 
@@ -56,7 +57,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-context</artifactId>
-            <version>2.2.5.RELEASE</version>
+            <version>${spring.cloud.context.version}</version>
         </dependency>
 
         <dependency>

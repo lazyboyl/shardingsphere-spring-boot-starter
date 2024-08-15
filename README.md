@@ -6,7 +6,7 @@ shardingsphere-spring-boot-starter [![License](http://img.shields.io/:license-ap
 ### 2、要求
 - jdk版本为1.8或1.8+
 - shardingsphere版本为5.5.0
-- spring boot版本为2.3.12.RELEASE+
+- spring boot版本为2.6.13+
 
 ### 3、快速开始
 
