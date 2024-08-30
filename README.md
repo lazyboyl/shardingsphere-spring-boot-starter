@@ -16,7 +16,9 @@ shardingsphere-spring-boot-starter [![License](http://img.shields.io/:license-ap
 <dependency>
    <groupId>com.lazyboyl</groupId>
    <artifactId>shardingsphere-spring-boot-starter</artifactId>
-   <!-- 以下替换为当前的shardingsphere的对应的shardingsphere-spring-boot-starter最新版本，例如shardingsphere最新版本为5.5.0，shardingsphere-spring-boot-starter最新版本5.5.0.M1那么你若使用的shardingsphere版本为5.5.0那么你就使用shardingsphere-spring-boot-starter的5.5.0.最新版本号 -->
+   <!-- 以下替换为当前的shardingsphere的对应的shardingsphere-spring-boot-starter最新版本，
+     例如shardingsphere最新版本为5.5.0，shardingsphere-spring-boot-starter最新版本5.5.0.M1
+那么你若使用的shardingsphere版本为5.5.0那么你就使用shardingsphere-spring-boot-starter的5.5.0.最新版本号 -->
    <version>${current.version}</version>
 </dependency>
 ```
