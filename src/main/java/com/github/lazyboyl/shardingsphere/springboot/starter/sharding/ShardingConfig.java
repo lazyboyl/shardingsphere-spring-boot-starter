@@ -24,7 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 读取
+ * 从spring中读取相应的配置
  *
  * @author linzf
  */
