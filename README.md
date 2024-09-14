@@ -10,6 +10,8 @@ shardingsphere-spring-boot-starter [![License](http://img.shields.io/:license-ap
 
 ### 3、快速开始
 
+相关例子请访问：https://github.com/lazyboyl/shardingsphere-spring-boot-starter-example/tree/5.5.0
+
 #### 3.1、添加依赖
 
 ```xml
