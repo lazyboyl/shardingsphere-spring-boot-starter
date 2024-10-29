@@ -10,9 +10,9 @@
     </parent>
     <groupId>io.github.lazyboyl</groupId>
     <artifactId>shardingsphere-spring-boot-starter</artifactId>
-    <version>5.5.0.M1</version>
+    <version>5.5.1</version>
     <name>shardingsphere-spring-boot-starter</name>
-    <description>实现shardingsphere5.5.0的基于spring boot的配置</description>
+    <description>实现shardingsphere5.5.1的基于spring boot的配置</description>
     <url/>
     <developers>
         <developer>
@@ -36,7 +36,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <shardingsphere.version>5.5.0</shardingsphere.version>
+        <shardingsphere.version>5.5.1</shardingsphere.version>
         <spring.cloud.context.version>3.1.8</spring.cloud.context.version>
     </properties>
     <dependencies>

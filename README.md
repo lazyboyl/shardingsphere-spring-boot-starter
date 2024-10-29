@@ -5,7 +5,7 @@ shardingsphere-spring-boot-starter [![License](http://img.shields.io/:license-ap
 在应用程序你可以像5.3.0版本一样愉快的使用spring boot 的配置来配置我们的shardingsphere
 ### 2、要求
 - jdk版本为1.8或1.8+
-- shardingsphere版本为5.5.0
+- shardingsphere版本为5.5.1
 - spring boot版本为2.6.13+
 
 ### 3、快速开始
@@ -19,8 +19,8 @@ shardingsphere-spring-boot-starter [![License](http://img.shields.io/:license-ap
    <groupId>com.lazyboyl</groupId>
    <artifactId>shardingsphere-spring-boot-starter</artifactId>
    <!-- 以下替换为当前的shardingsphere的对应的shardingsphere-spring-boot-starter最新版本，
-     例如shardingsphere最新版本为5.5.0，shardingsphere-spring-boot-starter最新版本5.5.0.M1
-那么你若使用的shardingsphere版本为5.5.0那么你就使用shardingsphere-spring-boot-starter的5.5.0.最新版本号 -->
+     例如shardingsphere最新版本为5.5.1，shardingsphere-spring-boot-starter最新版本5.5.1
+那么你若使用的shardingsphere版本为5.5.1那么你就使用shardingsphere-spring-boot-starter的5.5.1.最新版本号 -->
    <version>${current.version}</version>
 </dependency>
 ```
@@ -154,7 +154,7 @@ spring:
   shardingsphere:
     rules:
       readwrite_splitting:
-        dataSources:
+        dataSourceGroups:
           <data_source_name> (+): # 读写分离逻辑数据源名称，默认使用 Groovy 的行表达式 SPI 实现来解析
             write_data_source_name: # 写库数据源名称，默认使用 Groovy 的行表达式 SPI 实现来解析
             read_data_source_names: # 读库数据源名称，多个从数据源用逗号分隔，默认使用 Groovy 的行表达式 SPI 实现来解析
