@@ -41,7 +41,7 @@
     </properties>
     <dependencies>
 
-        <!-- 5.5.0版本的shardingsphere -->
+        <!-- 5.5.1版本的shardingsphere -->
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>shardingsphere-jdbc</artifactId>
